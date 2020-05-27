@@ -10,6 +10,7 @@ arg_map = {
         "--reports=no",
         "--disable=I",
         "--disable=duplicate-code",
+        "--disable=import-outside-toplevel",
         "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'",
     ],
     "tests/blackbox/stratisd_cert.py": [
@@ -31,6 +32,7 @@ arg_map = {
         "--reports=no",
         "--disable=I",
         "--disable=duplicate-code",
+        "--disable=import-outside-toplevel",
         "--msg-template='{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}'",
     ],
     "bin/stratis": [
