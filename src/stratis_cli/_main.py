@@ -67,3 +67,49 @@ def run():
         return 0
 
     return the_func
+
+
+def test_run():
+    """
+    Generate a function that parses arguments and executes.
+    """
+    parser = gen_parser()
+
+    # Set default configuration parameters for display of sizes, i.e., values
+    # that are generally given in bytes or some multiple thereof.
+    jb.Config.set_display_config(jb.DisplayConfig(show_approx_str=False))
+
+    def the_func(command_line_args):
+        """
+        Run according to the arguments passed.
+        """
+        result = parser.parse_args(command_line_args)
+        try:
+            try:
+                result.func(result)
+
+            # Keyboard Interrupt is recaught at the outermost possible layer.
+            # It is outside the regular execution of the program, so it is
+            # handled only there; it is just reraised here.
+            # The same holds for SystemExit, except that it must be allowed
+            # to propagate to the interpreter, i.e., it should not be recaught
+            # anywhere.
+            except (
+                # pylint: disable=bad-continuation
+                BrokenPipeError,
+                KeyboardInterrupt,
+                SystemExit,
+                StratisCliEnvironmentError,
+            ) as err:
+                raise err
+            except BaseException as err:
+                raise StratisCliActionError(command_line_args, result) from err
+        except StratisCliActionError as err:
+            if result.propagate:
+                raise
+
+            handle_error(err)
+
+        return 0
+
+    return the_func
