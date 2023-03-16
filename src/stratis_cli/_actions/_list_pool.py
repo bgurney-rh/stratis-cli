@@ -16,8 +16,8 @@ Pool actions.
 """
 
 # isort: STDLIB
-from abc import ABC, abstractmethod
 import json
+from abc import ABC, abstractmethod
 
 # isort: THIRDPARTY
 from dbus import Boolean
@@ -35,7 +35,6 @@ from ._formatting import (
     print_table,
     size_triple,
 )
-
 from ._utils import ClevisInfo
 
 
@@ -268,7 +267,9 @@ class Default(List):
         print(f"Key Description: {key_description_str}")
 
         clevis_info_str = (
-            _non_existent_or_inconsistent_to_str(mopool.ClevisInfo())
+            _non_existent_or_inconsistent_to_str(
+                mopool.ClevisInfo(), interp=clevis_to_str
+            )
             if encrypted
             else "unencrypted"
         )
@@ -451,7 +452,7 @@ class Stopped(List):  # pylint: disable=too-few-public-methods
         clevis_info_str = (
             "unencrypted"
             if clevis_info is None
-            else _non_existent_or_inconsistent_to_str(clevis_info)
+            else _non_existent_or_inconsistent_to_str(clevis_info, interp=clevis_to_str)
         )
         print(f"Clevis Configuration: {clevis_info_str}")
 
