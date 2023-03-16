@@ -17,6 +17,7 @@ Pool actions.
 
 # isort: STDLIB
 from abc import ABC, abstractmethod
+import json
 
 # isort: THIRDPARTY
 from dbus import Boolean
@@ -34,6 +35,8 @@ from ._formatting import (
     print_table,
     size_triple,
 )
+
+from ._utils import ClevisInfo
 
 
 def _fetch_stopped_pools_property(proxy):
@@ -86,6 +89,17 @@ def list_pools(uuid_formatter, *, stopped=False, selection=None):
         else Default(uuid_formatter, selection=selection)
     )
     klass.list_pools()
+
+
+def clevis_to_str(clevis_dbus_object):
+    """
+    :param dbus.Struct clevis_dbus_object: clevis information
+    :rtype: str
+    """
+    clevis_pin = str(clevis_dbus_object[0])
+    clevis_config = json.loads(clevis_dbus_object[1])
+    clevis_info = ClevisInfo(clevis_pin, clevis_config)
+    return str(clevis_info)
 
 
 class List(ABC):  # pylint: disable=too-few-public-methods
