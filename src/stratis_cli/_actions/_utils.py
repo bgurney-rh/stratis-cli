@@ -46,6 +46,9 @@ class ClevisInfo:
         self.pin = pin
         self.config = config
 
+    def __str__(self):
+        return f"pin: {self.pin}, config: {self.config}"
+
 
 def get_clevis_info(namespace):
     """
