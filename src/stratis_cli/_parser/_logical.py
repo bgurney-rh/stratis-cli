@@ -47,28 +47,33 @@ LOGICAL_SUBCMDS = [
     ),
     (
         "snapshot",
-        dict(
-            help="Snapshot the named filesystem in a pool",
-            args=[
-                ("pool_name", dict(action="store", help="pool name")),
-                ("origin_name", dict(action="store", help="origin name")),
-                ("snapshot_name", dict(action="store", help="snapshot name")),
+        {
+            "help": "Snapshot the named filesystem in a pool",
+            "args": [
+                ("pool_name", {"action": "store", "help": "pool name"}),
+                ("origin_name", {"action": "store", "help": "origin name"}),
+                ("snapshot_name", {"action": "store", "help": "snapshot name"}),
             ],
-            func=LogicalActions.snapshot_filesystem,
-        ),
+            "func": LogicalActions.snapshot_filesystem,
+        },
     ),
     (
         "list",
-        dict(
-            help="List filesystems",
-            args=[
+        {
+            "help": "List filesystems",
+            "args": [
                 (
                     "pool_name",
-                    dict(action="store", default=None, nargs="?", help="Pool name"),
+                    {
+                        "action": "store",
+                        "default": None,
+                        "nargs": "?",
+                        "help": "Pool name",
+                    },
                 )
             ],
-            func=LogicalActions.list_volumes,
-        ),
+            "func": LogicalActions.list_volumes,
+        },
     ),
     (
         "destroy",
