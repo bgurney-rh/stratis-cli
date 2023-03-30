@@ -374,19 +374,21 @@ POOL_SUBCMDS = [
     ),
     (
         "set-fs-limit",
-        dict(
-            help="Set the maximum number of filesystems the pool can support.",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
+        {
+            "help": "Set the maximum number of filesystems the pool can support.",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
                 (
                     "amount",
-                    dict(
-                        action="store", type=_ensure_nat, help="Number of filesystems."
-                    ),
+                    {
+                        "action": "store",
+                        "type": _ensure_nat,
+                        "help": "Number of filesystems.",
+                    },
                 ),
             ],
-            func=PoolActions.set_fs_limit,
-        ),
+            "func": PoolActions.set_fs_limit,
+        },
     ),
     (
         "overprovision",
