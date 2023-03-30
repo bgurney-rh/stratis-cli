@@ -137,39 +137,39 @@ ROOT_SUBCOMMANDS = [
     ),
     (
         "report",
-        dict(
-            help="Commands related to reports of the daemon state",
-            func=TopActions.get_report,
-            args=[
+        {
+            "help": "Commands related to reports of the daemon state",
+            "func": TopActions.get_report,
+            "args": [
                 (
                     "report_name",
-                    dict(
-                        default="engine_state_report",
-                        type=str,
-                        help=("Name of the report to display"),
-                        nargs="?",
-                        choices=[str(x) for x in list(ReportKey)],
-                    ),
+                    {
+                        "default": "engine_state_report",
+                        "type": str,
+                        "help": ("Name of the report to display"),
+                        "nargs": "?",
+                        "choices": [str(x) for x in list(ReportKey)],
+                    },
                 )
             ],
-        ),
+        },
     ),
     (
         "key",
-        dict(
-            help="Commands related to key operations for encrypted pools",
-            subcmds=KEY_SUBCMDS,
-            func=TopActions.list_keys,
-        ),
+        {
+            "help": "Commands related to key operations for encrypted pools",
+            "subcmds": KEY_SUBCMDS,
+            "func": TopActions.list_keys,
+        },
     ),
     (
         "debug",
-        dict(
-            help="Commands for debugging operations.",
-            subcmds=TOP_DEBUG_SUBCMDS,
-        ),
+        {
+            "help": "Commands for debugging operations.",
+            "subcmds": TOP_DEBUG_SUBCMDS,
+        },
     ),
-    ("daemon", dict(help="Stratis daemon information", subcmds=DAEMON_SUBCMDS)),
+    ("daemon", {"help": "Stratis daemon information", "subcmds": DAEMON_SUBCMDS}),
 ]
 
 GEN_ARGS = [
