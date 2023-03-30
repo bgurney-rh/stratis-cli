@@ -20,38 +20,38 @@ from .._actions import BindActions, RebindActions
 BIND_SUBCMDS = [
     (
         "nbde",
-        dict(
-            help="Bind using NBDE via a tang server",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
-                ("url", dict(action="store", help="URL of tang server")),
+        {
+            "help": "Bind using NBDE via a tang server",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
+                ("url", {"action": "store", "help": "URL of tang server"}),
             ],
-            mut_ex_args=[
+            "mut_ex_args": [
                 (
                     True,
                     [
                         (
                             "--trust-url",
-                            dict(
-                                action="store_true",
-                                help="Omit verification of tang server credentials",
-                                dest="trust_url",
-                            ),
+                            {
+                                "action": "store_true",
+                                "help": "Omit verification of tang server credentials",
+                                "dest": "trust_url",
+                            },
                         ),
                         (
                             "--thumbprint",
-                            dict(
-                                action="store",
-                                help="Thumbprint of tang server at specified URL",
-                                dest="thumbprint",
-                            ),
+                            {
+                                "action": "store",
+                                "help": "Thumbprint of tang server at specified URL",
+                                "dest": "thumbprint",
+                            },
                         ),
                     ],
                 )
             ],
-            aliases=["tang"],
-            func=BindActions.bind_tang,
-        ),
+            "aliases": ["tang"],
+            "func": BindActions.bind_tang,
+        },
     ),
     (
         "tpm2",
