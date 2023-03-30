@@ -94,14 +94,14 @@ KEY_SUBCMDS = [
     ),
     (
         "unset",
-        dict(
-            help="Unset a key in the kernel keyring",
-            args=[("keydesc", dict(action="store", help="key description"))],
-            func=TopActions.unset_key,
-        ),
+        {
+            "help": "Unset a key in the kernel keyring",
+            "args": [("keydesc", {"action": "store", "help": "key description"})],
+            "func": TopActions.unset_key,
+        },
     ),
     (
         "list",
-        dict(help="List Stratis keys in kernel keyring", func=TopActions.list_keys),
+        {"help": "List Stratis keys in kernel keyring", "func": TopActions.list_keys},
     ),
 ]
