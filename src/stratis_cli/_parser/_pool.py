@@ -135,60 +135,60 @@ POOL_SUBCMDS = [
     ),
     (
         "stop",
-        dict(
-            help=(
+        {
+            "help": (
                 "Stop a pool. Tear down the pool's storage stack "
                 "but do not erase any metadata."
             ),
-            args=[
+            "args": [
                 (
                     "pool_name",
-                    dict(
-                        action="store",
-                        help="Name of the pool to stop",
-                    ),
+                    {
+                        "action": "store",
+                        "help": "Name of the pool to stop",
+                    },
                 )
             ],
-            func=PoolActions.stop_pool,
-        ),
+            "func": PoolActions.stop_pool,
+        },
     ),
     (
         "start",
-        dict(
-            help="Start a pool.",
-            mut_ex_args=[
+        {
+            "help": "Start a pool.",
+            "mut_ex_args": [
                 (
                     True,
                     [
                         (
                             "--uuid",
-                            dict(
-                                action="store",
-                                type=UUID,
-                                help="UUID of the pool to start",
-                            ),
+                            {
+                                "action": "store",
+                                "type": UUID,
+                                "help": "UUID of the pool to start",
+                            },
                         ),
                         (
                             "--name",
-                            dict(action="store", help="name of the pool to start"),
+                            {"action": "store", "help": "name of the pool to start"},
                         ),
                     ],
                 )
             ],
-            args=[
+            "args": [
                 (
                     "--unlock-method",
-                    dict(
-                        default=None,
-                        dest="unlock_method",
-                        action="store",
-                        choices=[str(x) for x in list(EncryptionMethod)],
-                        help="Method to use to unlock the pool if encrypted.",
-                    ),
+                    {
+                        "default": None,
+                        "dest": "unlock_method",
+                        "action": "store",
+                        "choices": [str(x) for x in list(EncryptionMethod)],
+                        "help": "Method to use to unlock the pool if encrypted.",
+                    },
                 ),
             ],
-            func=PoolActions.start_pool,
-        ),
+            "func": PoolActions.start_pool,
+        },
     ),
     (
         "init-cache",
