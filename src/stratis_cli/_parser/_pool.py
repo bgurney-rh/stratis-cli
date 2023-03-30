@@ -192,65 +192,65 @@ POOL_SUBCMDS = [
     ),
     (
         "init-cache",
-        dict(
-            help="Initialize the cache with block devices",
-            args=[
+        {
+            "help": "Initialize the cache with block devices",
+            "args": [
                 (
                     "pool_name",
-                    dict(
-                        action="store",
-                        help=("Name of the pool for which to initialize the cache"),
-                    ),
+                    {
+                        "action": "store",
+                        "help": ("Name of the pool for which to initialize the cache"),
+                    },
                 ),
                 (
                     "blockdevs",
-                    dict(
-                        help="Initialize the pool cache using these block devs",
-                        nargs="+",
-                    ),
+                    {
+                        "help": "Initialize the pool cache using these block devs",
+                        "nargs": "+",
+                    },
                 ),
             ],
-            func=PoolActions.init_cache,
-        ),
+            "func": PoolActions.init_cache,
+        },
     ),
     (
         "list",
-        dict(
-            help="List pools",
-            description="List Stratis pools",
-            mut_ex_args=[
+        {
+            "help": "List pools",
+            "description": "List Stratis pools",
+            "mut_ex_args": [
                 (
                     False,
                     [
                         (
                             "--uuid",
-                            dict(
-                                action="store",
-                                type=UUID,
-                                help="UUID of pool to list",
-                            ),
+                            {
+                                "action": "store",
+                                "type": UUID,
+                                "help": "UUID of pool to list",
+                            },
                         ),
                         (
                             "--name",
-                            dict(
-                                action="store",
-                                help="name of pool to list",
-                            ),
+                            {
+                                "action": "store",
+                                "help": "name of pool to list",
+                            },
                         ),
                     ],
                 ),
             ],
-            args=[
+            "args": [
                 (
                     "--stopped",
-                    dict(
-                        action="store_true",
-                        help="Display information about stopped pools only.",
-                    ),
+                    {
+                        "action": "store_true",
+                        "help": "Display information about stopped pools only.",
+                    },
                 ),
             ],
-            func=PoolActions.list_pools,
-        ),
+            "func": PoolActions.list_pools,
+        },
     ),
     (
         "destroy",
