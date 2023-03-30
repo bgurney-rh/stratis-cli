@@ -94,33 +94,33 @@ LOGICAL_SUBCMDS = [
     ),
     (
         "rename",
-        dict(
-            help="Rename a filesystem",
-            args=[
+        {
+            "help": "Rename a filesystem",
+            "args": [
                 (
                     "pool_name",
-                    dict(
-                        action="store",
-                        help="Name of the pool the filesystem is part of",
-                    ),
+                    {
+                        "action": "store",
+                        "help": "Name of the pool the filesystem is part of",
+                    },
                 ),
                 (
                     "fs_name",
-                    dict(action="store", help="Name of the filesystem to change"),
+                    {"action": "store", "help": "Name of the filesystem to change"},
                 ),
                 (
                     "new_name",
-                    dict(action="store", help="New name to give that filesystem"),
+                    {"action": "store", "help": "New name to give that filesystem"},
                 ),
             ],
-            func=LogicalActions.rename_fs,
-        ),
+            "func": LogicalActions.rename_fs,
+        },
     ),
     (
         "debug",
-        dict(
-            help=("Miscellaneous filesystem-level debug commands"),
-            subcmds=FILESYSTEM_DEBUG_SUBCMDS,
-        ),
+        {
+            "help": ("Miscellaneous filesystem-level debug commands"),
+            "subcmds": FILESYSTEM_DEBUG_SUBCMDS,
+        },
     ),
 ]
