@@ -79,29 +79,29 @@ BIND_SUBCMDS = [
 REBIND_SUBCMDS = [
     (
         "clevis",
-        dict(
-            help=(
+        {
+            "help": (
                 "Rebind the devices in the specified pool using their current "
                 "Clevis configuration"
             ),
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
             ],
-            func=RebindActions.rebind_clevis,
-        ),
+            "func": RebindActions.rebind_clevis,
+        },
     ),
     (
         "keyring",
-        dict(
-            help=(
+        {
+            "help": (
                 "Rebind the devices in the specified pool using the specified "
                 "key in the kernel keyring"
             ),
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
-                ("keydesc", dict(action="store", help="key description")),
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
+                ("keydesc", {"action": "store", "help": "key description"}),
             ],
-            func=RebindActions.rebind_keyring,
-        ),
+            "func": RebindActions.rebind_keyring,
+        },
     ),
 ]
