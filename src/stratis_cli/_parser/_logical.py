@@ -77,17 +77,20 @@ LOGICAL_SUBCMDS = [
     ),
     (
         "destroy",
-        dict(
-            help="Destroy filesystems in a pool",
-            args=[
-                ("pool_name", dict(action="store", help="pool name")),
+        {
+            "help": "Destroy filesystems in a pool",
+            "args": [
+                ("pool_name", {"action": "store", "help": "pool name"}),
                 (
                     "fs_name",
-                    dict(help="Destroy the named filesystems in this pool", nargs="+"),
+                    {
+                        "help": "Destroy the named filesystems in this pool",
+                        "nargs": "+",
+                    },
                 ),
             ],
-            func=LogicalActions.destroy_volumes,
-        ),
+            "func": LogicalActions.destroy_volumes,
+        },
     ),
     (
         "rename",
