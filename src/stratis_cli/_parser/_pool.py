@@ -392,21 +392,21 @@ POOL_SUBCMDS = [
     ),
     (
         "overprovision",
-        dict(
-            help="Specify whether or not to allow overprovisioning for the pool.",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
+        {
+            "help": "Specify whether or not to allow overprovisioning for the pool.",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
                 (
                     "decision",
-                    dict(
-                        action="store",
-                        help="yes to allow overprovisioning, otherwise no",
-                        choices=[str(x) for x in list(YesOrNo)],
-                    ),
+                    {
+                        "action": "store",
+                        "help": "yes to allow overprovisioning, otherwise no",
+                        "choices": [str(x) for x in list(YesOrNo)],
+                    },
                 ),
             ],
-            func=PoolActions.set_overprovisioning_mode,
-        ),
+            "func": PoolActions.set_overprovisioning_mode,
+        },
     ),
     (
         "explain",
