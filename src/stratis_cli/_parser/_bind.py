@@ -55,24 +55,24 @@ BIND_SUBCMDS = [
     ),
     (
         "tpm2",
-        dict(
-            help="Bind using TPM2",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
+        {
+            "help": "Bind using TPM2",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
             ],
-            func=BindActions.bind_tpm,
-        ),
+            "func": BindActions.bind_tpm,
+        },
     ),
     (
         "keyring",
-        dict(
-            help="Bind using the kernel keyring",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
-                ("keydesc", dict(action="store", help="key description")),
+        {
+            "help": "Bind using the kernel keyring",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
+                ("keydesc", {"action": "store", "help": "key description"}),
             ],
-            func=BindActions.bind_keyring,
-        ),
+            "func": BindActions.bind_keyring,
+        },
     ),
 ]
 
