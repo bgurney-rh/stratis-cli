@@ -102,37 +102,38 @@ def add_subcommand(subparser, cmd):
 DAEMON_SUBCMDS = [
     (
         "version",
-        dict(
-            help="version of stratisd daemon", func=StratisActions.list_stratisd_version
-        ),
+        {
+            "help": "version of stratisd daemon",
+            "func": StratisActions.list_stratisd_version,
+        },
     ),
 ]
 
 ROOT_SUBCOMMANDS = [
     (
         "pool",
-        dict(
-            help="Perform General Pool Actions",
-            subcmds=POOL_SUBCMDS,
-            func=PoolActions.list_pools,
-        ),
+        {
+            "help": "Perform General Pool Actions",
+            "subcmds": POOL_SUBCMDS,
+            "func": PoolActions.list_pools,
+        },
     ),
     (
         "blockdev",
-        dict(
-            help="Commands related to block devices that make up the pool",
-            subcmds=PHYSICAL_SUBCMDS,
-            func=PhysicalActions.list_devices,
-        ),
+        {
+            "help": "Commands related to block devices that make up the pool",
+            "subcmds": PHYSICAL_SUBCMDS,
+            "func": PhysicalActions.list_devices,
+        },
     ),
     (
         "filesystem",
-        dict(
-            aliases=["fs"],
-            help="Commands related to filesystems allocated from a pool",
-            subcmds=LOGICAL_SUBCMDS,
-            func=LogicalActions.list_volumes,
-        ),
+        {
+            "aliases": ["fs"],
+            "help": "Commands related to filesystems allocated from a pool",
+            "subcmds": LOGICAL_SUBCMDS,
+            "func": LogicalActions.list_volumes,
+        },
     ),
     (
         "report",
