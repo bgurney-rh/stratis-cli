@@ -22,28 +22,28 @@ from ._range import RangeAction
 LOGICAL_SUBCMDS = [
     (
         "create",
-        dict(
-            help="Create filesystems in a pool",
-            args=[
-                ("pool_name", dict(action="store", help="pool name")),
+        {
+            "help": "Create filesystems in a pool",
+            "args": [
+                ("pool_name", {"action": "store", "help": "pool name"}),
                 (
                     "fs_name",
-                    dict(
-                        help="Create filesystems in this pool using the given names",
-                        nargs="+",
-                    ),
+                    {
+                        "help": "Create filesystems in this pool using the given names",
+                        "nargs": "+",
+                    },
                 ),
                 (
                     "--size",
-                    dict(
-                        action=RangeAction,
-                        dest="size",
-                        help='The size of the filesystems to be created, e.g., "32GiB"',
-                    ),
+                    {
+                        "action": RangeAction,
+                        "dest": "size",
+                        "help": 'The size of the filesystems to be created, e.g., "32GiB"',
+                    },
                 ),
             ],
-            func=LogicalActions.create_volumes,
-        ),
+            "func": LogicalActions.create_volumes,
+        },
     ),
     (
         "snapshot",
