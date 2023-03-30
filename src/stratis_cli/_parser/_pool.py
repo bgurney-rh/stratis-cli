@@ -410,26 +410,26 @@ POOL_SUBCMDS = [
     ),
     (
         "explain",
-        dict(
-            help="Explain pool alert codes",
-            args=[
+        {
+            "help": "Explain pool alert codes",
+            "args": [
                 (
                     "code",
-                    dict(
-                        action="store",
-                        choices=[str(x) for x in PoolErrorCode.codes()],
-                        help="Error code to explain",
-                    ),
+                    {
+                        "action": "store",
+                        "choices": [str(x) for x in PoolErrorCode.codes()],
+                        "help": "Error code to explain",
+                    },
                 )
             ],
-            func=PoolActions.explain_code,
-        ),
+            "func": PoolActions.explain_code,
+        },
     ),
     (
         "debug",
-        dict(
-            help=("Miscellaneous pool-level debug commands"),
-            subcmds=POOL_DEBUG_SUBCMDS,
-        ),
+        {
+            "help": ("Miscellaneous pool-level debug commands"),
+            "subcmds": POOL_DEBUG_SUBCMDS,
+        },
     ),
 ]
