@@ -254,58 +254,58 @@ POOL_SUBCMDS = [
     ),
     (
         "destroy",
-        dict(
-            help="Destroy a pool",
-            args=[("pool_name", dict(action="store", help="pool name"))],
-            func=PoolActions.destroy_pool,
-        ),
+        {
+            "help": "Destroy a pool",
+            "args": [("pool_name", {"action": "store", "help": "pool name"})],
+            "func": PoolActions.destroy_pool,
+        },
     ),
     (
         "rename",
-        dict(
-            help="Rename a pool",
-            args=[
-                ("current", dict(action="store", help="Current pool name")),
-                ("new", dict(action="store", help="New pool name")),
+        {
+            "help": "Rename a pool",
+            "args": [
+                ("current", {"action": "store", "help": "Current pool name"}),
+                ("new", {"action": "store", "help": "New pool name"}),
             ],
-            func=PoolActions.rename_pool,
-        ),
+            "func": PoolActions.rename_pool,
+        },
     ),
     (
         "add-data",
-        dict(
-            help="Add one or more blockdevs to an existing pool for use as data storage",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
+        {
+            "help": "Add one or more blockdevs to an existing pool for use as data storage",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
                 (
                     "blockdevs",
-                    dict(
-                        help="Block devices to add to the pool",
-                        metavar="blockdev",
-                        nargs="+",
-                    ),
+                    {
+                        "help": "Block devices to add to the pool",
+                        "metavar": "blockdev",
+                        "nargs": "+",
+                    },
                 ),
             ],
-            func=PoolActions.add_data_devices,
-        ),
+            "func": PoolActions.add_data_devices,
+        },
     ),
     (
         "add-cache",
-        dict(
-            help="Add one or more blockdevs to an existing pool for use as cache",
-            args=[
-                ("pool_name", dict(action="store", help="Pool name")),
+        {
+            "help": "Add one or more blockdevs to an existing pool for use as cache",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Pool name"}),
                 (
                     "blockdevs",
-                    dict(
-                        help="Block devices to add to the pool as cache",
-                        metavar="blockdev",
-                        nargs="+",
-                    ),
+                    {
+                        "help": "Block devices to add to the pool as cache",
+                        "metavar": "blockdev",
+                        "nargs": "+",
+                    },
                 ),
             ],
-            func=PoolActions.add_cache_devices,
-        ),
+            "func": PoolActions.add_cache_devices,
+        },
     ),
     (
         "extend-data",
