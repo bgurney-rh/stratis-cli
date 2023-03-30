@@ -173,10 +173,10 @@ ROOT_SUBCOMMANDS = [
 ]
 
 GEN_ARGS = [
-    ("--propagate", dict(action="store_true", help="Allow exceptions to propagate")),
+    ("--propagate", {"action": "store_true", "help": "Allow exceptions to propagate"}),
     (
         "--unhyphenated-uuids",
-        dict(action="store_true", help="Display UUIDs in unhyphenated format"),
+        {"action": "store_true", "help": "Display UUIDs in unhyphenated format"},
     ),
 ]
 
