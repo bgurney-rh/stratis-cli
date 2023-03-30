@@ -44,94 +44,94 @@ def _ensure_nat(arg):
 POOL_SUBCMDS = [
     (
         "create",
-        dict(
-            help="Create a pool",
-            args=[
-                ("pool_name", dict(action="store", help="Name of new pool")),
+        {
+            "help": "Create a pool",
+            "args": [
+                ("pool_name", {"action": "store", "help": "Name of new pool"}),
                 (
                     "blockdevs",
-                    dict(help="Create the pool using these block devs", nargs="+"),
+                    {"help": "Create the pool using these block devs", "nargs": "+"},
                 ),
                 (
                     "--key-desc",
-                    dict(
-                        default=None,
-                        type=str,
-                        help=(
+                    {
+                        "default": None,
+                        "type": str,
+                        "help": (
                             "Key description of key in kernel keyring to use "
                             "for encryption"
                         ),
-                        dest="key_desc",
-                    ),
+                        "dest": "key_desc",
+                    },
                 ),
                 (
                     "--clevis",
-                    dict(
-                        default=None,
-                        type=str,
-                        help=("Specification for binding with Clevis."),
-                        dest="clevis",
-                        choices=["nbde", "tang", "tpm2"],
-                    ),
+                    {
+                        "default": None,
+                        "type": str,
+                        "help": ("Specification for binding with Clevis."),
+                        "dest": "clevis",
+                        "choices": ["nbde", "tang", "tpm2"],
+                    },
                 ),
                 (
                     "--tang-url",
-                    dict(
-                        default=None,
-                        type=str,
-                        help=(
+                    {
+                        "default": None,
+                        "type": str,
+                        "help": (
                             "URL of Clevis tang server (ignored if "
                             "--clevis=[tang|nbde] not set)"
                         ),
-                        dest="tang_url",
-                    ),
+                        "dest": "tang_url",
+                    },
                 ),
                 (
                     "--no-overprovision",
-                    dict(
-                        action="store_true",
-                        help=(
+                    {
+                        "action": "store_true",
+                        "help": (
                             "Do not allow the sum of the logical size of the "
                             "pool's filesystems to exceed the size of the "
                             "pool's data area."
                         ),
-                        dest="no_overprovision",
-                    ),
+                        "dest": "no_overprovision",
+                    },
                 ),
             ],
-            mut_ex_args=[
+            "mut_ex_args": [
                 (
                     False,
                     [
                         (
                             "--trust-url",
-                            dict(
-                                action="store_true",
-                                help=(
+                            {
+                                "action": "store_true",
+                                "help": (
                                     "Omit verification of tang server "
                                     "credentials (ignored if "
                                     "--clevis=[tang|nbde] not set)"
                                 ),
-                                dest="trust_url",
-                            ),
+                                "dest": "trust_url",
+                            },
                         ),
                         (
                             "--thumbprint",
-                            dict(
-                                action="store",
-                                help=(
+                            {
+                                "action": "store",
+                                "help": (
                                     "Thumbprint of tang server at specified "
                                     "URL (ignored if --clevis=[tang|nbde] not "
                                     "set)"
                                 ),
-                                dest="thumbprint",
-                            ),
+                                "dest": "thumbprint",
+                            },
                         ),
                     ],
                 )
             ],
-            func=PoolActions.create_pool,
-        ),
+            "func": PoolActions.create_pool,
+        },
     ),
     (
         "stop",
