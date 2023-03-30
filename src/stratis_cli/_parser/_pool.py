@@ -339,38 +339,38 @@ POOL_SUBCMDS = [
     ),
     (
         "bind",
-        dict(
-            help="Bind the given pool with an additional encryption facility",
-            subcmds=BIND_SUBCMDS,
-        ),
+        {
+            "help": "Bind the given pool with an additional encryption facility",
+            "subcmds": BIND_SUBCMDS,
+        },
     ),
     (
         "rebind",
-        dict(
-            help=(
+        {
+            "help": (
                 "Rebind the given pool with a currently in use encryption "
                 "facility but new credentials"
             ),
-            subcmds=REBIND_SUBCMDS,
-        ),
+            "subcmds": REBIND_SUBCMDS,
+        },
     ),
     (
         "unbind",
-        dict(
-            help="Unbind the given pool, removing support for encryption with Clevis",
-            args=[
+        {
+            "help": "Unbind the given pool, removing support for encryption with Clevis",
+            "args": [
                 (
                     "method",
-                    dict(
-                        action="store",
-                        choices=[str(x) for x in list(EncryptionMethod)],
-                        help="Encryption method to unbind",
-                    ),
+                    {
+                        "action": "store",
+                        "choices": [str(x) for x in list(EncryptionMethod)],
+                        "help": "Encryption method to unbind",
+                    },
                 ),
-                ("pool_name", dict(action="store", help="Pool name")),
+                ("pool_name", {"action": "store", "help": "Pool name"}),
             ],
-            func=BindActions.unbind,
-        ),
+            "func": BindActions.unbind,
+        },
     ),
     (
         "set-fs-limit",
